@@ -52,35 +52,38 @@
   </g>
 </svg>
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+<script>
+  // 🌊 Gentle wave motion for the whole fish
+  gsap.to("#fishBody", {
+    y: -5,
+    duration: 2,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut"
+  });
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
-  <script>
-    gsap.to("#tail", {
-      rotation: 10,
-      transformOrigin: "center center",
-      duration: 0.6,
-      yoyo: true,
-      repeat: -1,
-      ease: "sine.inOut"
-    });
+  // 👄 Mouth pulsing like it's talking or breathing
+  gsap.to("#mouth", {
+    scaleY: 1.3,
+    scaleX: 0.9,
+    transformOrigin: "center center",
+    duration: 0.4,
+    repeat: -1,
+    yoyo: true,
+    ease: "power1.inOut",
+    repeatDelay: 1
+  });
 
-    gsap.to("#pupilLeft, #pupilRight", {
-      scaleY: 0.1,
-      duration: 0.2,
-      repeat: -1,
-      yoyo: true,
-      repeatDelay: 3,
-      transformOrigin: "center center"
-    });
+  // 🫧 Optional: bubble pulse for extra life
+  gsap.to("#bubble circle", {
+    scale: 1.2,
+    duration: 1.5,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut"
+  });
+</script>
 
-    gsap.to("#mouth", {
-      scaleY: 1.2,
-      transformOrigin: "center center",
-      duration: 0.3,
-      yoyo: true,
-      repeat: -1,
-      repeatDelay: 2
-    });
-  </script>
 </body>
 </html>
