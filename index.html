@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      background: transparent;
+    }
+    svg {
+      width: 300px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- Your SVG code goes here -->
+  <svg id="fish" viewBox="0 0 302.82 185.09" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <!-- Include IDs like fishBody, tail, mouth, pupilLeft, pupilRight -->
+    <!-- Paste your optimized SVG content here -->
+  </svg>
+
+  <!-- GSAP Animation -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script>
+    const tl = gsap.timeline({ repeat: -1, repeatDelay: 2 });
+
+    tl.from("#fish", { x: -400, duration: 2, ease: "power2.out" });
+    tl.to("#tail", { rotation: 15, transformOrigin: "left center", duration: 0.4, yoyo: true, repeat: 6 }, "-=1.5");
+    tl.to("#mouth", { scaleY: 1.2, transformOrigin: "center center", duration: 0.3, yoyo: true, repeat: 4 }, "-=1");
+
+    gsap.to("#pupilLeft, #pupilRight", {
+      scaleY: 0.1,
+      duration: 0.2,
+      repeat: -1,
+      yoyo: true,
+      repeatDelay: 3,
+      transformOrigin: "center center"
+    });
+
+    gsap.to("#tail", {
+      rotation: 10,
+      duration: 0.6,
+      yoyo: true,
+      repeat: -1,
+      ease: "sine.inOut",
+      transformOrigin: "left center"
+    });
+  </script>
+</body>
+</html>
