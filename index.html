@@ -1,36 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <title>Animated Fish</title>
   <style>
     body {
       margin: 0;
-      background: transparent;
+      background: #001f2f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
     svg {
-      width: 100%;
+      width: 80%;
       height: auto;
-      display: block;
     }
   </style>
 </head>
 <body>
-  <svg id="fish" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-    <ellipse id="fishBody" cx="100" cy="50" rx="40" ry="25" fill="#FFA500" />
-    <polygon id="tail" points="60,50 30,35 30,65" fill="#FF8C00" />
-    <circle id="eyeLeft" cx="115" cy="45" r="5" fill="#FFFFFF" />
-    <circle id="pupilLeft" cx="115" cy="45" r="2" fill="#000000" />
-    <circle id="eyeRight" cx="115" cy="55" r="5" fill="#FFFFFF" />
-    <circle id="pupilRight" cx="115" cy="55" r="2" fill="#000000" />
-    <path id="mouth" d="M135,50 Q140,55 135,60" stroke="#000" stroke-width="2" fill="none" />
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 302.82 185.09" preserveAspectRatio="xMidYMid meet">
+    <g id="fishBody" transform="translate(-88.71,-87.33)" fill-rule="nonzero" stroke="#000" stroke-linejoin="miter" stroke-miterlimit="10">
+      <path d="M388.79,144.6c-35.62,29.54 -93.32,98.2 -150.66,112.16c-64.01,15.59 -111.03,-23.79 -111.03,-76.17c0,-52.38 50.35,-103.47 114.63,-89.03c31.26,5.18 69.43,55.65 100.34,94.06c31.21,38.79 29.59,35.74 44.39,46.32c3.94,2.82 -6.66,-43.34 -6.66,-43.34c0,0 13.74,-47.95 8.99,-44.01z" fill="#66fffd" stroke-width="3.5"/>
+      <g id="eyeLeft">
+        <circle cx="176.86" cy="165.05" r="17.49" fill="#fff" stroke-width="2"/>
+        <circle id="pupilLeft" cx="177.98" cy="170.04" r="5.61" fill="#66fffd" stroke-width="8"/>
+      </g>
+      <g id="eyeRight">
+        <circle cx="231.05" cy="164.39" r="17.49" fill="#fff" stroke-width="2"/>
+        <circle id="pupilRight" cx="231.72" cy="168.92" r="5.61" fill="#66fffd" stroke-width="8"/>
+      </g>
+      <g id="tail" stroke-width="3">
+        <path d="M351.14,115.66l-15.22,35.92l-46.88,0.61" fill="none" stroke-linecap="round"/>
+        <path d="M362.1,103.18c0,6.22 -3.82,11.26 -8.52,11.26c-4.71,0 -18.63,-7.2 -15.86,-12.77c1.69,-3.41 3.82,0.2 7.94,-0.52c3.18,-0.55 5.61,-10.56 9.43,-9.99c4.66,0.69 7.02,5.8 7.02,12.02z" fill="#16ffff"/>
+      </g>
+      <g id="bubble" stroke-width="3">
+        <path d="M110.3,258.74l31.66,-28.01" fill="none" stroke-linecap="round"/>
+        <circle cx="109.09" cy="261.79" r="9.44" fill="#16ffff"/>
+      </g>
+      <path id="mouth" d="M273.83,193.09c0,1.88 -19.76,14.27 -38.58,23.94c-5.82,2.99 -16.82,6.7 -17.19,6.76c-2.29,0.39 -11.44,0.6 -13.85,0.57c-2.05,-0.02 -8.49,-0.23 -10.44,-0.42c-12.25,-1.14 -19.86,-7.82 -27.76,-10.05c-14.16,-6.96 -20.5,-10.13 -20.5,-11.73c0,-1.14 4.02,2.31 12.08,5.74c10.25,4.37 26.92,9.15 48.99,9.15c1.88,0 6.97,0.59 13.23,-0.37c5.41,-0.83 6.59,-0.69 13.07,-2.57c17.82,-5.15 40.95,-22.19 40.95,-21.02z" fill="#ff2b4c" stroke-width="2"/>
+      <path d="M292.25,198.07c-1.54,2.59 -1.47,2.86 -5.9,3.86c-0.16,0.04 -5.7,-1.29 -5.86,-1.38c-2.24,-1.35 -3.81,-2.67 -4.54,-4.65c-0.7,-1.91 -3.89,-6.95 -2.89,-10.37c0.31,-1.04 0.16,-4.28 2.37,-6.15c2.21,-1.87 1.64,-2.09 5.44,-1.93" fill="none" stroke-width="3" stroke-linecap="round"/>
+      <rect id="toothLeft" x="186.38" y="216.66" width="17.71" height="26.97" fill="#fff" stroke-width="2"/>
+      <rect id="toothRight" x="205.26" y="217.15" width="17.71" height="25.73" fill="#fff" stroke-width="2"/>
+    </g>
   </svg>
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
   <script>
     gsap.to("#tail", {
-      rotation: 15,
-      transformOrigin: "60px 50px",
-      duration: 0.5,
+      rotation: 10,
+      transformOrigin: "center center",
+      duration: 0.6,
       yoyo: true,
       repeat: -1,
       ease: "sine.inOut"
