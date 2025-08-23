@@ -45,18 +45,32 @@
               stroke-width="3.5"
               stroke-linecap="butt"/>
 
-        <!-- Right Arm (nested to keep joints connected) -->
-        <g id="rightArmUpper" stroke-width="3">
-          <path d="M351.13711,115.65816l-15.2209,35.92132" fill="none" stroke-linecap="round"/>
-          <g id="rightArmLower">
-            <path d="M335.91621,151.57948l-46.88037,0.60884" fill="none" stroke-linecap="round"/>
-            <g id="rightHand">
-              <path d="M362.09616,103.17702c0,6.22064 -3.8162,11.26347 -8.52371,11.26347c-4.70751,0 -18.63037,-7.19775 -15.86311,-12.76899c1.69372,-3.40988 3.82199,0.19678 7.93556,-0.51894c3.18069,-0.55341 5.61229,-10.55633 9.43306,-9.99176c4.65695,0.68812 7.01818,5.79559 7.01818,12.01623z"
-                    fill="#16ffff"
-                    stroke-linecap="butt"/>
-            </g>
-          </g>
-        </g>
+		<!-- Upper arm now pivots at the old wrist position -->
+<g id="upperArm" transform="translate(289.03584,152.18832)">
+  <!-- Upper arm: new origin (old wrist) to elbow -->
+  <path d="M0,0 l46.88037,-0.60884" fill="none" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Lower arm: elbow to new 'wrist' (old shoulder) -->
+  <g id="lowerArm" transform="translate(46.88037,-0.60884)">
+    <path d="M0,0 l15.2209,-35.92132" fill="none" stroke-width="3" stroke-linecap="round"/>
+
+   <!-- Wrist group at elbow→wrist offset -->
+    <g id="hand" transform="translate(15.2209,-35.92132)" stroke-width="3">
+      <path
+        d="M10.95905,-12.48114
+           c0,6.22064 -3.8162,11.26347 -8.52371,11.26347
+           c-4.70751,0 -18.63037,-7.19775 -15.86311,-12.76899
+           c1.69372,-3.40988 3.82199,0.19678 7.93556,-0.51894
+           c3.18069,-0.55341 5.61229,-10.55633 9.43306,-9.99176
+           c4.65695,0.68812 7.01818,5.79559 7.01818,12.01623
+           z"
+        fill="#16ffff"
+        stroke-linecap="butt"/>
+    </g>
+  </g>
+</g>
+
+
 
         <!-- Left Eye -->
         <g stroke-linecap="butt" stroke-width="2">
@@ -118,6 +132,33 @@
       </g>
     </g>
   </svg>
+  
+  <!-- Include GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<script>
+  // Set transform origins so rotations pivot correctly
+  gsap.set("#lowerArm", { transformOrigin: "0 0" }); // elbow pivot
+  gsap.set("#hand", { transformOrigin: "0 0" });     // wrist pivot
+
+  // Lower arm wave motion
+  gsap.to("#lowerArm", {
+    rotation: 20,          // swing forward
+    duration: 0.75,
+    yoyo: true,
+    repeat: -1,
+    ease: "sine.inOut"
+  });
+
+  // Hand flick motion (faster)
+  gsap.to("#hand", {
+    rotation: 10,          // flick
+    duration: 0.25,
+    yoyo: true,
+    repeat: -1,
+    ease: "sine.inOut"
+  });
+</script>
 
 
 
