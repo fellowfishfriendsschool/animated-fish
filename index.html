@@ -122,38 +122,44 @@
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
 <script>
-  // 🌊 Gentle wave motion for the whole fish
-  gsap.to("#fishBody", {
-    y: -5,
-    duration: 2,
-    repeat: -1,
-    yoyo: true,
-    ease: "sine.inOut"
+  // 1) set up your pivots
+  gsap.set(
+    ["#rightArmUpper", "#rightArmLower", "#rightHand",
+     "#leftArmUpper",  "#leftArmLower"], {
+      transformOrigin: "left top"
+    }
+  );
+
+  // 2) wave both arms in one timeline
+  const wave = gsap.timeline({ repeat: -1, yoyo: true })
+    .to("#rightArmUpper", { rotation: 20,  duration: 0.4, ease: "sine.inOut" })
+    .to("#rightArmLower", { rotation: -15, duration: 0.4, ease: "sine.inOut" }, "<0.2")
+    .to("#rightHand",     { rotation: 30,  duration: 0.4, ease: "sine.inOut" }, "<0.2")
+    .to("#leftArmUpper",  { rotation: -15, duration: 0.4, ease: "sine.inOut" }, "<0.8")
+    .to("#leftArmLower",  { rotation: 10,  duration: 0.4, ease: "sine.inOut" }, "<");
+
+  // 3) gentle body bob
+  gsap.to("#body", {
+    y:  -5,
+    duration: 1,
+    ease:     "sine.inOut",
+    repeat:  -1,
+    yoyo:    true
   });
 
-  // 👄 Mouth pulsing like it's talking or breathing
-  gsap.to("#mouth", {
-    scaleY: 1.3,
-    scaleX: 0.9,
+  // 4) random quick blinks
+  gsap.to("#pupilLeft, #pupilRight", {
+    scaleY:        0.6,
     transformOrigin: "center center",
-    duration: 0.4,
-    repeat: -1,
-    yoyo: true,
-    ease: "power1.inOut",
-    repeatDelay: 1
-  });
-
-  // 🫧 Optional: bubble pulse for extra life
-  gsap.to("#bubble circle", {
-    scale: 1.2,
-    duration: 1.5,
-    repeat: -1,
-    yoyo: true,
-    ease: "sine.inOut"
+    duration:      0.1,
+    repeat:       -1,
+    yoyo:          true,
+    repeatDelay:   3
   });
 </script>
+
 
 </body>
 </html>
