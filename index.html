@@ -119,43 +119,8 @@
     </g>
   </svg>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script>
-    // Joint coordinates from paths:
-    // Shoulder: (351.13711, 115.65816)
-    // Elbow:    (335.91621, 151.57948)
-    // Wrist:    (289.03584, 152.18832)  // elbow + lower arm delta
 
-    // Set pivot points using SVG viewBox coordinates
-    gsap.set("#rightArmUpper", {
-      transformOrigin: "351.13711px 115.65816px",
-      transformBox: "view-box"
-    });
 
-    gsap.set("#rightArmLower", {
-      transformOrigin: "335.91621px 151.57948px",
-      transformBox: "view-box"
-    });
 
-    gsap.set("#rightHand", {
-      transformOrigin: "289.03584px 152.18832px",
-      transformBox: "view-box"
-    });
-
-    // Subtle, correct-direction wave (upper → small, lower → a bit more, hand → little flick)
-    const tl = gsap.timeline({ repeat: -1, yoyo: true });
-
-    // Phase A
-    tl.to("#rightArmUpper", { rotation: 3, duration: 0.7, ease: "sine.inOut" }, 0);
-    tl.to("#rightArmLower", { rotation: 7, duration: 0.7, ease: "sine.inOut" }, 0);
-    tl.to("#rightHand",     { rotation: 4, duration: 0.7, ease: "sine.inOut" }, 0);
-
-    // Phase B (reverse with tiny offset for organic feel)
-    tl.to("#rightArmUpper", { rotation: -2, duration: 0.7, ease: "sine.inOut" }, 0.7);
-    tl.to("#rightArmLower", { rotation: -5, duration: 0.7, ease: "sine.inOut" }, 0.7);
-    tl.to("#rightHand",     { rotation: -3, duration: 0.7, ease: "sine.inOut" }, 0.7);
-
-    // Tip: flip direction by negating the rotation values above (or swap signs)
-  </script>
 </body>
 </html>
