@@ -141,13 +141,15 @@
     transformBox: "view-box"   // use SVG coords, not bounding box
   });
 
-  gsap.to("#hand", {
-    rotation: 25,
-    duration: 0.3,
-    yoyo: true,
-    repeat: -1,
-    ease: "sine.inOut"
-  });
+ gsap.to("#hand", {
+  rotation: 25,
+  duration: 0.3,
+  yoyo: true,
+  repeat: -1,
+  ease: "sine.inOut",
+  svgOrigin: "351.13711 115.65816"
+});
+
 </script>
 
 
