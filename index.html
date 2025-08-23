@@ -132,41 +132,25 @@
       </g>
     </g>
   </svg>
-  
+
+	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script>
-  // Upper arm pivots at shoulder
-  gsap.set("#upperArm", {
-    transformOrigin: "0 0",
-    transformBox: "fill-box"
-  });
-
   // Hand pivots at wrist
   gsap.set("#hand", {
-    transformOrigin: "0 0",
+    transformOrigin: "0 0",   // wrist point
     transformBox: "fill-box"
   });
 
-  // Gentle swing from the shoulder
-  gsap.to("#upperArm", {
-    rotation: 15,
-    duration: 1.5,
-    yoyo: true,
-    repeat: -1,
-    ease: "sine.inOut"
-  });
-
-  // Quick wrist flick for the wave
+  // Hand wave motion
   gsap.to("#hand", {
-    rotation: 25,
-    duration: 0.3,
+    rotation: 25,             // wave angle
+    duration: 0.3,             // quick flick
     yoyo: true,
     repeat: -1,
     ease: "sine.inOut"
   });
 </script>
-
-
 
 
 
