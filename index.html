@@ -135,37 +135,45 @@
     </g>
   </svg>
 
-  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-  <script>
-    // GSAP animations (no changes needed)
-    gsap.set(
-      ["#rightArmUpper", "#rightArmLower", "#rightHand",
-       "#leftArmUpper",  "#leftArmLower"], { transformOrigin: "left top" }
-    );
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script>
+  const eye   = document.querySelector("#eyeLeft");
+  const pupil = document.querySelector("#pupilLeft");
 
-    const wave = gsap.timeline({ repeat: -1, yoyo: true })
-      .to("#rightArmUpper", { rotation: 20,  duration: 0.4, ease: "sine.inOut" })
-      .to("#rightArmLower", { rotation: -15, duration: 0.4, ease: "sine.inOut" }, "<0.2")
-      .to("#rightHand",     { rotation: 30,  duration: 0.4, ease: "sine.inOut" }, "<0.2")
-      .to("#leftArmUpper",  { rotation: -15, duration: 0.4, ease: "sine.inOut" }, "<0.8")
-      .to("#leftArmLower",  { rotation: 10,  duration: 0.4, ease: "sine.inOut" }, "<");
+  // helper to pick a random delay each time
+  const randDelay = () => gsap.utils.random(2.5, 4);
 
-    gsap.to("#body", {
-      y:       -5,
-      duration: 1,
-      ease:     "sine.inOut",
-      repeat:   -1,
-      yoyo:     true
-    });
+  gsap.timeline({
+      repeat:    -1,
+      repeatDelay: randDelay,
+    })
+    // 1) close eye quickly
+    .to([eye, pupil], {
+      scaleY: 0.05,
+      duration: 0.08,
+      ease: "power2.in",
+      transformOrigin: "50% 50%",
+    })
+    // 2) hold closed for a tiny fraction
+    .to([eye, pupil], {
+      duration: 0.12,
+      scaleY: 0.05,
+      ease: "none",
+    })
+    // 3) spring back open with a little overshoot
+    .to([eye, pupil], {
+      scaleY: 1.1,
+      duration: 0.3,
+      ease: "elastic.out(1, 0.5)",
+    })
+    // 4) settle exactly at 1.0
+    .to([eye, pupil], {
+      scaleY: 1,
+      duration: 0.1,
+      ease: "power1.out",
+    }, "-=0.12");  // overlap the tail of the elastic so it feels snappy
+</script>
 
-    gsap.to("#pupilLeft, #pupilRight", {
-      scaleY:           0.6,
-      transformOrigin:  "center center",
-      duration:         0.1,
-      repeat:          -1,
-      yoyo:             true,
-      repeatDelay:      3
-    });
-  </script>
+
 </body>
 </html>
