@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,10 +53,11 @@
 
   <!-- Lower arm: elbow to new 'wrist' (old shoulder) -->
   <g id="lowerArm" transform="translate(46.88037,-0.60884)">
-    <path d="M0,0 l15.2209,-35.92132" fill="none" stroke-width="3" stroke-linecap="round"/>
+       <path d="M0,0 l15.2209,-35.92132" fill="none" stroke-width="3" stroke-linecap="round"/>
 
    <!-- Wrist group at elbow→wrist offset -->
     <g id="hand" transform="translate(15.2209,-35.92132)" stroke-width="3">
+      
       <path
         d="M10.95905,-12.48114
            c0,6.22064 -3.8162,11.26347 -8.52371,11.26347
@@ -131,30 +133,33 @@
 
       </g>
     </g>
+    
   </svg>
 
-	
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script>
-  gsap.set("#hand", {
-    transformOrigin: "0 0",    // wrist point
-    transformBox: "view-box"   // use SVG coords, not bounding box
-  });
-
- gsap.to("#hand", {
-  rotation: 25,
-  duration: 0.3,
+  
+gsap.to("#upperArm", {
+  rotation: 15,
+  duration: 1,
   yoyo: true,
   repeat: -1,
   ease: "sine.inOut",
-  svgOrigin: "351.13711 115.65816"
+  svgOrigin: "289.03584 152.18832"   
 });
+   
+
+
+ 
+  
+ 
+  
 
 </script>
 
 
-
-
+ 
 
 
 </body>
