@@ -36,6 +36,7 @@
     viewBox="0 0 302.82341 185.08639"
     preserveAspectRatio="xMidYMid meet"
   >
+<g id="character" transform="translate(0,0)">
     <g transform="translate(-88.7133,-87.33181)">
       <g fill-rule="nonzero" stroke="#000000" stroke-linejoin="miter" stroke-miterlimit="10" style="mix-blend-mode: normal">
 
@@ -107,33 +108,59 @@
                 stroke-linecap="butt"/>
         </g>
 
-        <!-- Mouth -->
-        <g id="mouth">
-          <path d="M273.83088,193.09117c0,1.87727 -19.75926,14.27478 -38.57702,23.93913c-5.81679,2.98736 -16.81996,6.6954 -17.18617,6.75786c-2.29109,0.39078 -11.43639,0.59631 -13.85146,0.5725c-2.0498,-0.02022 -8.48889,-0.23382 -10.43704,-0.41558c-12.25275,-1.14311 -19.85721,-7.81517 -27.75922,-10.05121c-14.15509,-6.95857 -20.50466,-10.12852 -20.50466,-11.73311c0,-1.13531 4.02013,2.30796 12.07726,5.74091c10.2483,4.36655 26.92055,9.14591 48.98862,9.14591c1.87586,0 6.97319,0.59211 13.23201,-0.36809c5.41003,-0.82997 6.58603,-0.69484 13.06659,-2.56836c17.81816,-5.15122 40.95108,-22.18856 40.95108,-21.01997z"
-                fill="#ff2b4c"
-                stroke-width="2"
-                stroke-linecap="butt"/>
-          <path d="M292.25128,198.06993c-1.53533,2.59458 -1.4696,2.86197 -5.90464,3.85994c-0.16352,0.03681 -5.70427,-1.28568 -5.86495,-1.38261c-2.23579,-1.34879 -3.81455,-2.67473 -4.53986,-4.64668c-0.70184,-1.90815 -3.88991,-6.94669 -2.88545,-10.36945c0.30517,-1.03989 0.16412,-4.28394 2.37053,-6.15495c2.20643,-1.87102 1.63703,-2.09479 5.43639,-1.92525"
-                fill="none"
-                stroke-width="3"
-                stroke-linecap="round"/>
-        </g>
+    <!-- Main mouth group -->
+<g id="mouth">
 
-        <!-- Teeth -->
-        <path id="teethLeft"
-              d="M186.3812,243.62305v-26.9678l17.71484,1.23465v25.73315z"
-              fill="#ffffff"
-              stroke-width="2"
-              stroke-linecap="butt"/>
-        <path id="teethRight"
-              d="M205.25516,242.87904v-25.73315h17.71484v25.73315z"
-              fill="#ffffff"
-              stroke-width="2"
-              stroke-linecap="butt"/>
+  <!-- Top lip group -->
+  <g id="topLip">
+    <path
+      d="M273.83088,193.09117c0,1.87727 -19.75926,14.27478 -38.57702,23.93913c-5.81679,2.98736 -16.81996,6.6954 -17.18617,6.75786c-2.29109,0.39078 -11.43639,0.59631 -13.85146,0.5725c-2.0498,-0.02022 -8.48889,-0.23382 -10.43704,-0.41558c-12.25275,-1.14311 -19.85721,-7.81517 -27.75922,-10.05121c-14.15509,-6.95857 -20.50466,-10.12852 -20.50466,-11.73311c0,-1.13531 4.02013,2.30796 12.07726,5.74091c10.2483,4.36655 26.92055,9.14591 48.98862,9.14591c1.87586,0 6.97319,0.59211 13.23201,-0.36809c5.41003,-0.82997 6.58603,-0.69484 13.06659,-2.56836c17.81816,-5.15122 40.95108,-22.18856 40.95108,-21.01997z"
+      fill="#ff2b4c"
+      stroke-width="2"
+      stroke-linecap="butt"
+    />
+  </g>
+
+  <!-- Bottom lip group -->
+  <g id="bottomLip">
+    <!-- Cheek stroke -->
+    <path
+      id="cheek1"
+      d="M292.25128,198.06993c-1.53533,2.59458 -1.4696,2.86197 -5.90464,3.85994c-0.16352,0.03681 -5.70427,-1.28568 -5.86495,-1.38261c-2.23579,-1.34879 -3.81455,-2.67473 -4.53986,-4.64668c-0.70184,-1.90815 -3.88991,-6.94669 -2.88545,-10.36945c0.30517,-1.03989 0.16412,-4.28394 2.37053,-6.15495c2.20643,-1.87102 1.63703,-2.09479 5.43639,-1.92525"
+      fill="none"
+      stroke="#000000"
+      stroke-width="3"
+      stroke-linecap="round"
+    />
+
+    <!-- Teeth left -->
+    <path
+      id="teethLeft"
+      d="M186.3812,243.62305v-26.9678l17.71484,1.23465v25.73315z"
+      fill="#ffffff"
+      stroke-width="2"
+      stroke-linecap="butt"
+    />
+
+    <!-- Teeth right -->
+    <path
+      id="teethRight"
+      d="M205.25516,242.87904v-25.73315h17.71484v25.73315z"
+      fill="#ffffff"
+      stroke-width="2"
+      stroke-linecap="butt"
+    />
+  </g>
+
+</g>
+
+
+
+       
 
       </g>
     </g>
-    
+    </g>
   </svg>
 
 
@@ -150,11 +177,60 @@ gsap.to("#upperArm", {
 });
    
 
+function blinkRightEye() {
+  gsap.to(["#eyeRight", "#pupilRight"], {
+    scaleY: 0.01,
+    duration: 0.1,
+    yoyo: true,
+    repeat: 1, // close + open
+    ease: "power1.inOut",
+    svgOrigin: "231 164"
+  });
+}
 
- 
-  
- 
-  
+// Trigger blink when the right eye is clicked
+document.querySelector("#body").addEventListener("click", blinkRightEye);
+document.querySelector("#body").addEventListener("click", blinkRightEye);
+
+const character = document.getElementById("character");
+  let x = 0;
+  let y = 0;
+  const step = 20; // movement distance per press
+  const speed = 0.3; // seconds for tween
+  let facing = -1; // 1 = right, -1 = left
+
+  window.addEventListener("keydown", (e) => {
+    let moved = false;
+
+    switch (e.key) {
+      case "ArrowUp":
+        y -= step;
+        moved = true;
+        break;
+      case "ArrowDown":
+        y += step;
+        moved = true;
+        break;
+      case "ArrowLeft":
+        x -= step;
+        facing = 1; // face left
+        moved = true;
+        break;
+      case "ArrowRight":
+        x += step;
+        facing = -1; // face right
+        moved = true;
+        break;
+    }
+
+    if (moved) {
+      gsap.to(character, {
+        duration: speed,
+        attr: { transform: `translate(${x},${y}) scale(${facing},1)` },
+        ease: "power2.out"
+      });
+    }
+  });
 
 </script>
 
