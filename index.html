@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,8 +35,8 @@
     viewBox="0 0 302.82341 185.08639"
     preserveAspectRatio="xMidYMid meet"
   >
-<g id="character" transform="translate(0,0)">
-    <g transform="translate(-88.7133,-87.33181)">
+    <g id="character" transform="translate(0,0)">
+      <g transform="translate(-88.7133,-87.33181)">
       <g fill-rule="nonzero" stroke="#000000" stroke-linejoin="miter" stroke-miterlimit="10" style="mix-blend-mode: normal">
 
         <!-- Body -->
@@ -160,83 +159,127 @@
 
       </g>
     </g>
-    </g>
   </svg>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script>
+    const character = document.getElementById("character");
+    const scaleFactor = 0.2;
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script>
-  
-gsap.to("#upperArm", {
-  rotation: 15,
-  duration: 1,
-  yoyo: true,
-  repeat: -1,
-  ease: "sine.inOut",
-  svgOrigin: "289.03584 152.18832"   
-});
+    // Calculate center offset based on viewBox and scale
+    const viewBox = document.querySelector("svg").viewBox.baseVal;
+    const centerX = (viewBox.width - viewBox.width * scaleFactor) / 2;
+    const centerY = (viewBox.height - viewBox.height * scaleFactor) / 2;
+
+    let x = centerX;
+    let y = centerY;
+    const step = 20;
+    const speed = 0.3;
+    let facing = 1;
+
+    // Initial position & scale
+    gsap.set(character, {
+      attr: { transform: `translate(${x},${y}) scale(${scaleFactor},${scaleFactor})` }
+    });
+
+    // Arm wave animation
+    gsap.to("#upperArm", {
+      rotation: 15,
+      duration: .8,
+      yoyo: true,
+      repeat: -1,
+      ease: "sine.inOut",
+      svgOrigin: "289.03584 152.18832"
+    });
+
+  gsap.to("#hand", {
+      rotation: 15,
+      duration: .8,
+      yoyo: true,
+      repeat: -1,
+      ease: "sine.inOut",
+      svgOrigin: "-10 -50"
+    });
+
    
 
-function blinkRightEye() {
-  gsap.to(["#eyeRight", "#pupilRight"], {
-    scaleY: 0.01,
-    duration: 0.1,
-    yoyo: true,
-    repeat: 1, // close + open
-    ease: "power1.inOut",
-    svgOrigin: "231 164"
-  });
+    // Movement logic
+    window.addEventListener("keydown", (e) => {
+      let moved = false;
+
+      switch (e.key) {
+        case "ArrowUp":
+          y -= step;
+          moved = true;
+          break;
+        case "ArrowDown":
+          y += step;
+          moved = true;
+          break;
+        case "ArrowLeft":
+          x -= step;
+          facing = 1;
+          moved = true;
+          break;
+        case "ArrowRight":
+          x += step;
+          facing = -1;
+          moved = true;
+          break;
+      }
+
+      if (moved) {
+        gsap.to(character, {
+          duration: speed,
+          attr: { transform: `translate(${x},${y}) scale(${facing * scaleFactor},${scaleFactor})` },
+          ease: "power2.out"
+        });
+      }
+    });
+    
+    
+    // Ensure eyes start at normal scale
+gsap.set(["#eyeLeft", "#pupilLeft", "#eyeRight", "#pupilRight"], { scaleY: 1 });
+
+// Blink both eyes together when the character is clicked
+function blinkBoth() {
+  // Prevent overlapping blinks
+  if (gsap.isTweening("#eyeLeft") || gsap.isTweening("#eyeRight")) return;
+
+  const tl = gsap.timeline();
+
+  // Close
+  tl.to(["#eyeLeft", "#pupilLeft"], {
+    scaleY: 0.08,
+    duration: 0.08,
+    ease: "power1.in",
+    svgOrigin: "194.34842 165.05255" // left eye center
+  }, 0)
+  .to(["#eyeRight", "#pupilRight"], {
+    scaleY: 0.08,
+    duration: 0.08,
+    ease: "power1.in",
+    svgOrigin: "248.54116 164.38522" // right eye center
+  }, 0)
+
+  // Open
+  .to(["#eyeLeft", "#pupilLeft"], {
+    scaleY: 1,
+    duration: 0.12,
+    ease: "power1.out",
+    svgOrigin: "194.34842 165.05255"
+  }, "+=0")
+  .to(["#eyeRight", "#pupilRight"], {
+    scaleY: 1,
+    duration: 0.12,
+    ease: "power1.out",
+    svgOrigin: "248.54116 164.38522"
+  }, "<");
 }
 
-// Trigger blink when the right eye is clicked
-document.querySelector("#body").addEventListener("click", blinkRightEye);
-document.querySelector("#body").addEventListener("click", blinkRightEye);
-
-const character = document.getElementById("character");
-  let x = 0;
-  let y = 0;
-  const step = 20; // movement distance per press
-  const speed = 0.3; // seconds for tween
-  let facing = -1; // 1 = right, -1 = left
-
-  window.addEventListener("keydown", (e) => {
-    let moved = false;
-
-    switch (e.key) {
-      case "ArrowUp":
-        y -= step;
-        moved = true;
-        break;
-      case "ArrowDown":
-        y += step;
-        moved = true;
-        break;
-      case "ArrowLeft":
-        x -= step;
-        facing = 1; // face left
-        moved = true;
-        break;
-      case "ArrowRight":
-        x += step;
-        facing = -1; // face right
-        moved = true;
-        break;
-    }
-
-    if (moved) {
-      gsap.to(character, {
-        duration: speed,
-        attr: { transform: `translate(${x},${y}) scale(${facing},1)` },
-        ease: "power2.out"
-      });
-    }
-  });
-
-</script>
-
-
- 
-
-
+document.getElementById("character").addEventListener("click", blinkBoth);
+  </script>
+    
+    
 </body>
 </html>
