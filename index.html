@@ -346,7 +346,7 @@
   gsap.set(character, {
     attr: { transform: `translate(${x},${y}) scale(${scaleFactor},${scaleFactor})` }
   });
-
+  window.focus();
   gsap.to("#upperArm", {
     rotation: 15,
     duration: .8,
