@@ -162,7 +162,7 @@
   </svg>
 <script>
   const character = document.getElementById("character");
-  const scaleFactor = 0.5; // medium size
+  const scaleFactor = 0.2;
 
   const viewBox = document.querySelector("svg").viewBox.baseVal;
   let x = (viewBox.width - viewBox.width * scaleFactor) / 2;
@@ -174,11 +174,12 @@
   const charWidth = viewBox.width * scaleFactor * 0.5;
   const charHeight = viewBox.height * scaleFactor * 0.5;
 
-  // initial placement
+  // Initial placement
   gsap.set(character, {
     attr: { transform: `translate(${x},${y}) scale(${scaleFactor},${scaleFactor})` }
   });
 
+  // Bounce effect when hitting edges
   function bounce(axis, direction) {
     const bounceDistance = 10;
     const bounceTime = 0.15;
@@ -203,43 +204,22 @@
     gsap.to(character, props);
   }
 
+  // Arrow key movement
   window.addEventListener("keydown", (e) => {
     let moved = false;
 
     switch (e.key) {
       case "ArrowUp":
-        if (y - step >= 0) {
-          y -= step;
-          moved = true;
-        } else {
-          bounce("y", -1);
-        }
+        if (y - step >= 0) { y -= step; moved = true; } else { bounce("y", -1); }
         break;
       case "ArrowDown":
-        if (y + step + charHeight <= viewBox.height) {
-          y += step;
-          moved = true;
-        } else {
-          bounce("y", 1);
-        }
+        if (y + step + charHeight <= viewBox.height) { y += step; moved = true; } else { bounce("y", 1); }
         break;
       case "ArrowLeft":
-        if (x - step >= 0) {
-          x -= step;
-          facing = 1;
-          moved = true;
-        } else {
-          bounce("x", -1);
-        }
+        if (x - step >= 0) { x -= step; facing = 1; moved = true; } else { bounce("x", -1); }
         break;
       case "ArrowRight":
-        if (x + step + charWidth <= viewBox.width) {
-          x += step;
-          facing = -1;
-          moved = true;
-        } else {
-          bounce("x", 1);
-        }
+        if (x + step + charWidth <= viewBox.width) { x += step; facing = -1; moved = true; } else { bounce("x", 1); }
         break;
     }
 
@@ -252,7 +232,6 @@
     }
   });
 </script>
-
     
     
 </body>
