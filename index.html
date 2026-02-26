@@ -46,33 +46,26 @@
               stroke-width="3.5"
               stroke-linecap="butt"/>
 
-		<!-- Upper arm now pivots at the old wrist position -->
-<g id="upperArm" transform="translate(289.03584,152.18832)">
-  <!-- Upper arm: new origin (old wrist) to elbow -->
-  <path d="M0,0 l46.88037,-0.60884" fill="none" stroke-width="3" stroke-linecap="round"/>
+        <!-- Upper arm pivots at wrist position -->
+        <g id="upperArm" transform="translate(289.03584,152.18832)">
+          <path d="M0,0 l46.88037,-0.60884" fill="none" stroke-width="3" stroke-linecap="round"/>
 
-  <!-- Lower arm: elbow to new 'wrist' (old shoulder) -->
-  <g id="lowerArm" transform="translate(46.88037,-0.60884)">
-       <path d="M0,0 l15.2209,-35.92132" fill="none" stroke-width="3" stroke-linecap="round"/>
+          <g id="lowerArm" transform="translate(46.88037,-0.60884)">
+            <path d="M0,0 l15.2209,-35.92132" fill="none" stroke-width="3" stroke-linecap="round"/>
 
-   <!-- Wrist group at elbow→wrist offset -->
-    <g id="hand" transform="translate(15.2209,-35.92132)" stroke-width="3">
-      
-      <path
-        d="M10.95905,-12.48114
-           c0,6.22064 -3.8162,11.26347 -8.52371,11.26347
-           c-4.70751,0 -18.63037,-7.19775 -15.86311,-12.76899
-           c1.69372,-3.40988 3.82199,0.19678 7.93556,-0.51894
-           c3.18069,-0.55341 5.61229,-10.55633 9.43306,-9.99176
-           c4.65695,0.68812 7.01818,5.79559 7.01818,12.01623
-           z"
-        fill="#16ffff"
-        stroke-linecap="butt"/>
-    </g>
-  </g>
-</g>
-
-
+            <g id="hand" transform="translate(15.2209,-35.92132)" stroke-width="3">
+              <path
+                d="M10.95905,-12.48114
+                   c0,6.22064 -3.8162,11.26347 -8.52371,11.26347
+                   c-4.70751,0 -18.63037,-7.19775 -15.86311,-12.76899
+                   c1.69372,-3.40988 3.82199,0.19678 7.93556,-0.51894
+                   c3.18069,-0.55341 5.61229,-10.55633 9.43306,-9.99176
+                   c4.65695,0.68812 7.01818,5.79559 7.01818,12.01623z"
+                fill="#16ffff"
+                stroke-linecap="butt"/>
+            </g>
+          </g>
+        </g>
 
         <!-- Left Eye -->
         <g stroke-linecap="butt" stroke-width="2">
@@ -107,373 +100,199 @@
                 stroke-linecap="butt"/>
         </g>
 
-    <!-- Main mouth group -->
-<g id="mouth">
+        <!-- Mouth -->
+        <g id="mouth">
 
-  <!-- Top lip group -->
-  <g id="topLip">
-    <path
-      d="M273.83088,193.09117c0,1.87727 -19.75926,14.27478 -38.57702,23.93913c-5.81679,2.98736 -16.81996,6.6954 -17.18617,6.75786c-2.29109,0.39078 -11.43639,0.59631 -13.85146,0.5725c-2.0498,-0.02022 -8.48889,-0.23382 -10.43704,-0.41558c-12.25275,-1.14311 -19.85721,-7.81517 -27.75922,-10.05121c-14.15509,-6.95857 -20.50466,-10.12852 -20.50466,-11.73311c0,-1.13531 4.02013,2.30796 12.07726,5.74091c10.2483,4.36655 26.92055,9.14591 48.98862,9.14591c1.87586,0 6.97319,0.59211 13.23201,-0.36809c5.41003,-0.82997 6.58603,-0.69484 13.06659,-2.56836c17.81816,-5.15122 40.95108,-22.18856 40.95108,-21.01997z"
-      fill="#ff2b4c"
-      stroke-width="2"
-      stroke-linecap="butt"
-    />
-  </g>
+          <!-- Top lip -->
+          <g id="topLip">
+            <path
+              d="M273.83088,193.09117c0,1.87727 -19.75926,14.27478 -38.57702,23.93913c-5.81679,2.98736 -16.81996,6.6954 -17.18617,6.75786c-2.29109,0.39078 -11.43639,0.59631 -13.85146,0.5725c-2.0498,-0.02022 -8.48889,-0.23382 -10.43704,-0.41558c-12.25275,-1.14311 -19.85721,-7.81517 -27.75922,-10.05121c-14.15509,-6.95857 -20.50466,-10.12852 -20.50466,-11.73311c0,-1.13531 4.02013,2.30796 12.07726,5.74091c10.2483,4.36655 26.92055,9.14591 48.98862,9.14591c1.87586,0 6.97319,0.59211 13.23201,-0.36809c5.41003,-0.82997 6.58603,-0.69484 13.06659,-2.56836c17.81816,-5.15122 40.95108,-22.18856 40.95108,-21.01997z"
+              fill="#ff2b4c"
+              stroke-width="2"
+              stroke-linecap="butt"
+            />
+          </g>
 
-  <!-- Bottom lip group -->
-  <g id="bottomLip">
-    <!-- Cheek stroke -->
-    <path
-      id="cheek1"
-      d="M292.25128,198.06993c-1.53533,2.59458 -1.4696,2.86197 -5.90464,3.85994c-0.16352,0.03681 -5.70427,-1.28568 -5.86495,-1.38261c-2.23579,-1.34879 -3.81455,-2.67473 -4.53986,-4.64668c-0.70184,-1.90815 -3.88991,-6.94669 -2.88545,-10.36945c0.30517,-1.03989 0.16412,-4.28394 2.37053,-6.15495c2.20643,-1.87102 1.63703,-2.09479 5.43639,-1.92525"
-      fill="none"
-      stroke="#000000"
-      stroke-width="3"
-      stroke-linecap="round"
-    />
+          <!-- Bottom lip -->
+          <g id="bottomLip">
+            <!-- Cheek stroke -->
+            <path
+              id="cheek1"
+              d="M292.25128,198.06993c-1.53533,2.59458 -1.4696,2.86197 -5.90464,3.85994c-0.16352,0.03681 -5.70427,-1.28568 -5.86495,-1.38261c-2.23579,-1.34879 -3.81455,-2.67473 -4.53986,-4.64668c-0.70184,-1.90815 -3.88991,-6.94669 -2.88545,-10.36945c0.30517,-1.03989 0.16412,-4.28394 2.37053,-6.15495c2.20643,-1.87102 1.63703,-2.09479 5.43639,-1.92525"
+              fill="none"
+              stroke="#000000"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
 
-    <!-- Teeth left -->
-    <path
-      id="teethLeft"
-      d="M186.3812,243.62305v-26.9678l17.71484,1.23465v25.73315z"
-      fill="#ffffff"
-      stroke-width="2"
-      stroke-linecap="butt"
-    />
+            <!-- Teeth left -->
+            <path
+              id="teethLeft"
+              d="M186.3812,243.62305v-26.9678l17.71484,1.23465v25.73315z"
+              fill="#ffffff"
+              stroke-width="2"
+              stroke-linecap="butt"
+            />
 
-    <!-- Teeth right -->
-    <path
-      id="teethRight"
-      d="M205.25516,242.87904v-25.73315h17.71484v25.73315z"
-      fill="#ffffff"
-      stroke-width="2"
-      stroke-linecap="butt"
-    />
-  </g>
+            <!-- Teeth right -->
+            <path
+              id="teethRight"
+              d="M205.25516,242.87904v-25.73315h17.71484v25.73315z"
+              fill="#ffffff"
+              stroke-width="2"
+              stroke-linecap="butt"
+            />
+          </g>
 
-</g>
-
-
-
-       
+        </g>
 
       </g>
-    </g>
-  </svg>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Animated Fish</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background: transparent;
-    }
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    svg {
-      width: 100%;
-      height: auto;
-      max-height: 100%;
-      display: block;
-      background: transparent;
-    }
-  </style>
-</head>
-<body>
-  <svg
-    version="1.1"
-    xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    viewBox="0 0 302.82341 185.08639"
-    preserveAspectRatio="xMidYMid meet"
-  >
-    <g id="character" transform="translate(0,0)">
-      <g transform="translate(-88.7133,-87.33181)">
-      <g fill-rule="nonzero" stroke="#000000" stroke-linejoin="miter" stroke-miterlimit="10" style="mix-blend-mode: normal">
-
-        <!-- Body -->
-        <path id="body"
-              d="M388.78632,144.60437c-35.62065,29.54444 -93.31916,98.19554 -150.65941,112.16094c-64.00965,15.58975 -111.03344,-23.79061 -111.03344,-76.17385c0,-52.38325 50.35374,-103.46921 114.63257,-89.02934c31.25575,5.18164 69.43363,55.65103 100.34334,94.06421c31.2133,38.79047 29.59421,35.73937 44.38775,46.3207c3.93717,2.81612 -6.65936,-43.33539 -6.65936,-43.33539c0,0 13.74418,-47.95167 8.98856,-44.00725z"
-              fill="#66fffd"
-              stroke-width="3.5"
-              stroke-linecap="butt"/>
-
-		<!-- Upper arm now pivots at the old wrist position -->
-<g id="upperArm" transform="translate(289.03584,152.18832)">
-  <!-- Upper arm: new origin (old wrist) to elbow -->
-  <path d="M0,0 l46.88037,-0.60884" fill="none" stroke-width="3" stroke-linecap="round"/>
-
-  <!-- Lower arm: elbow to new 'wrist' (old shoulder) -->
-  <g id="lowerArm" transform="translate(46.88037,-0.60884)">
-       <path d="M0,0 l15.2209,-35.92132" fill="none" stroke-width="3" stroke-linecap="round"/>
-
-   <!-- Wrist group at elbow→wrist offset -->
-    <g id="hand" transform="translate(15.2209,-35.92132)" stroke-width="3">
-      
-      <path
-        d="M10.95905,-12.48114
-           c0,6.22064 -3.8162,11.26347 -8.52371,11.26347
-           c-4.70751,0 -18.63037,-7.19775 -15.86311,-12.76899
-           c1.69372,-3.40988 3.82199,0.19678 7.93556,-0.51894
-           c3.18069,-0.55341 5.61229,-10.55633 9.43306,-9.99176
-           c4.65695,0.68812 7.01818,5.79559 7.01818,12.01623
-           z"
-        fill="#16ffff"
-        stroke-linecap="butt"/>
-    </g>
-  </g>
-</g>
-
-
-
-        <!-- Left Eye -->
-        <g stroke-linecap="butt" stroke-width="2">
-          <path id="eyeLeft"
-                d="M194.34842,165.05255c0,10.99159 -7.83039,19.90204 -17.48967,19.90204c-9.65928,0 -17.48967,-8.91045 -17.48967,-19.90204c0,-10.99159 7.83039,-19.90204 17.48967,-19.90204c9.65928,0 17.48967,8.91045 17.48967,19.90204z"
-                fill="#ffffff"/>
-          <path id="pupilLeft"
-                d="M183.58554,170.03965c0,3.59127 -2.50973,6.50257 -5.60566,6.50257c-3.09592,0 -5.60567,-2.9113 -5.60567,-6.50257c0,-3.59127 2.50975,-6.50257 5.60567,-6.50257c3.09592,0 5.60566,2.9113 5.60566,6.50257z"
-                fill="#66fffd"
-                stroke-width="8"/>
-        </g>
-
-        <!-- Right Eye -->
-        <path id="eyeRight"
-              d="M248.54116,164.38522c0,10.99159 -7.83039,19.90204 -17.48967,19.90204c-9.65928,0 -17.48967,-8.91045 -17.48967,-19.90204c0,-10.99159 7.83039,-19.90204 17.48967,-19.90204c9.65928,0 17.48967,8.91044 17.48967,19.90204z"
-              fill="#ffffff"
-              stroke-width="2"
-              stroke-linecap="butt"/>
-        <path id="pupilRight"
-              d="M237.32983,168.92388c0,3.59127 -2.50973,6.50257 -5.60566,6.50257c-3.09592,0 -5.60566,-2.91131 -5.60566,-6.50257c0,-3.59127 2.50973,-6.50257 5.60566,-6.50257c3.09592,0 5.60566,2.9113 5.60566,6.50257z"
-              fill="#66fffd"
-              stroke-width="8"
-              stroke-linecap="butt"/>
-
-        <!-- Left Arm -->
-        <g id="leftArmUpper" stroke-width="3">
-          <path d="M110.30491,258.74147l31.65947,-28.00645" fill="none" stroke-linecap="round"/>
-        </g>
-        <g id="leftArmLower" stroke-width="3">
-          <path d="M109.08724,261.78565c0,5.04377 -4.22507,9.13254 -9.43697,9.13254c-5.21188,0 -9.43697,-4.08878 -9.43697,-9.13254c0,-5.04377 4.22507,-9.13254 9.43697,-9.13254c5.21188,0 9.43697,4.08878 9.43697,9.13254z"
-                fill="#16ffff"
-                stroke-linecap="butt"/>
-        </g>
-
-    <!-- Main mouth group -->
-<g id="mouth">
-
-  <!-- Top lip group -->
-  <g id="topLip">
-    <path
-      d="M273.83088,193.09117c0,1.87727 -19.75926,14.27478 -38.57702,23.93913c-5.81679,2.98736 -16.81996,6.6954 -17.18617,6.75786c-2.29109,0.39078 -11.43639,0.59631 -13.85146,0.5725c-2.0498,-0.02022 -8.48889,-0.23382 -10.43704,-0.41558c-12.25275,-1.14311 -19.85721,-7.81517 -27.75922,-10.05121c-14.15509,-6.95857 -20.50466,-10.12852 -20.50466,-11.73311c0,-1.13531 4.02013,2.30796 12.07726,5.74091c10.2483,4.36655 26.92055,9.14591 48.98862,9.14591c1.87586,0 6.97319,0.59211 13.23201,-0.36809c5.41003,-0.82997 6.58603,-0.69484 13.06659,-2.56836c17.81816,-5.15122 40.95108,-22.18856 40.95108,-21.01997z"
-      fill="#ff2b4c"
-      stroke-width="2"
-      stroke-linecap="butt"
-    />
-  </g>
-
-  <!-- Bottom lip group -->
-  <g id="bottomLip">
-    <!-- Cheek stroke -->
-    <path
-      id="cheek1"
-      d="M292.25128,198.06993c-1.53533,2.59458 -1.4696,2.86197 -5.90464,3.85994c-0.16352,0.03681 -5.70427,-1.28568 -5.86495,-1.38261c-2.23579,-1.34879 -3.81455,-2.67473 -4.53986,-4.64668c-0.70184,-1.90815 -3.88991,-6.94669 -2.88545,-10.36945c0.30517,-1.03989 0.16412,-4.28394 2.37053,-6.15495c2.20643,-1.87102 1.63703,-2.09479 5.43639,-1.92525"
-      fill="none"
-      stroke="#000000"
-      stroke-width="3"
-      stroke-linecap="round"
-    />
-
-    <!-- Teeth left -->
-    <path
-      id="teethLeft"
-      d="M186.3812,243.62305v-26.9678l17.71484,1.23465v25.73315z"
-      fill="#ffffff"
-      stroke-width="2"
-      stroke-linecap="butt"
-    />
-
-    <!-- Teeth right -->
-    <path
-      id="teethRight"
-      d="M205.25516,242.87904v-25.73315h17.71484v25.73315z"
-      fill="#ffffff"
-      stroke-width="2"
-      stroke-linecap="butt"
-    />
-  </g>
-
-</g>
-
-
-
-       
-
       </g>
     </g>
   </svg>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
- <script>
-  const character = document.getElementById("character");
-  const scaleFactor = 0.2;
+  <script>
+    const character = document.getElementById("character");
+    const scaleFactor = 0.2;
 
-  const viewBox = document.querySelector("svg").viewBox.baseVal;
-  const centerX = (viewBox.width - viewBox.width * scaleFactor) / 2;
-  const centerY = (viewBox.height - viewBox.height * scaleFactor) / 2;
+    const viewBox = document.querySelector("svg").viewBox.baseVal;
 
-  let x = centerX;
-  let y = centerY;
-  const step = 20;
-  const speed = 0.3;
-  let facing = 1;
+    // FIX 2: Correct boundary math using actual scaled SVG dimensions
+    const charWidth  = viewBox.width  * scaleFactor;
+    const charHeight = viewBox.height * scaleFactor;
 
-  const charWidth = viewBox.width * scaleFactor * 0.5;
-  const charHeight = viewBox.height * scaleFactor * 0.5;
+    const centerX = (viewBox.width  - charWidth)  / 2;
+    const centerY = (viewBox.height - charHeight) / 2;
 
-  gsap.set(character, {
-    attr: { transform: `translate(${x},${y}) scale(${scaleFactor},${scaleFactor})` }
-  });
-  window.focus();
-  gsap.to("#upperArm", {
-    rotation: 15,
-    duration: .8,
-    yoyo: true,
-    repeat: -1,
-    ease: "sine.inOut",
-    svgOrigin: "289.03584 152.18832"
-  });
+    let x = centerX;
+    let y = centerY;
+    const step  = 20;
+    const speed = 0.3;
+    let facing  = 1;
+    let isBouncing = false; // FIX 3: bounce/move conflict guard
 
-  gsap.to("#hand", {
-    rotation: 15,
-    duration: .8,
-    yoyo: true,
-    repeat: -1,
-    ease: "sine.inOut",
-    svgOrigin: "-10 -50"
-  });
+    gsap.set(character, {
+      attr: { transform: `translate(${x},${y}) scale(${scaleFactor},${scaleFactor})` }
+    });
 
-  function bounce(axis, direction) {
-    const bounceDistance = 10;
-    const bounceTime = 0.15;
-
-    const props = {
-      duration: bounceTime,
+    // Arm wave animation
+    gsap.to("#upperArm", {
+      rotation: 15,
+      duration: 0.8,
       yoyo: true,
-      repeat: 1,
-      ease: "power1.out"
-    };
+      repeat: -1,
+      ease: "sine.inOut",
+      svgOrigin: "289.03584 152.18832"
+    });
 
-    if (axis === "x") {
-      props.attr = {
-        transform: `translate(${x + bounceDistance * direction},${y}) scale(${facing * scaleFactor},${scaleFactor})`
-      };
-    } else {
-      props.attr = {
-        transform: `translate(${x},${y + bounceDistance * direction}) scale(${facing * scaleFactor},${scaleFactor})`
-      };
-    }
+    gsap.to("#hand", {
+      rotation: 15,
+      duration: 0.8,
+      yoyo: true,
+      repeat: -1,
+      ease: "sine.inOut",
+      svgOrigin: "-10 -50"
+    });
 
-    gsap.to(character, props);
-  }
-
-  window.addEventListener("keydown", (e) => {
-    let moved = false;
-
-    switch (e.key) {
-      case "ArrowUp":
-        if (y - step >= 0) {
-          y -= step;
-          moved = true;
-        } else {
-          bounce("y", -1);
-        }
-        break;
-      case "ArrowDown":
-        if (y + step + charHeight <= viewBox.height) {
-          y += step;
-          moved = true;
-        } else {
-          bounce("y", 1);
-        }
-        break;
-      case "ArrowLeft":
-        if (x - step >= 0) {
-          x -= step;
-          facing = 1;
-          moved = true;
-        } else {
-          bounce("x", -1);
-        }
-        break;
-      case "ArrowRight":
-        if (x + step + charWidth <= viewBox.width) {
-          x += step;
-          facing = -1;
-          moved = true;
-        } else {
-          bounce("x", 1);
-        }
-        break;
-    }
-
-    if (moved) {
+    function applyTransform() {
       gsap.to(character, {
         duration: speed,
         attr: { transform: `translate(${x},${y}) scale(${facing * scaleFactor},${scaleFactor})` },
         ease: "power2.out"
       });
     }
-  });
 
-  // Eyes start normal
-  gsap.set(["#eyeLeft", "#pupilLeft", "#eyeRight", "#pupilRight"], { scaleY: 1 });
+    function bounce(axis, direction) {
+      if (isBouncing) return;
+      isBouncing = true;
 
-  function blinkBoth() {
-    if (gsap.isTweening("#eyeLeft") || gsap.isTweening("#eyeRight")) return;
+      const bounceDistance = 10;
+      const bounceTime     = 0.15;
 
-    const tl = gsap.timeline();
+      const targetX = axis === "x" ? x + bounceDistance * direction : x;
+      const targetY = axis === "y" ? y + bounceDistance * direction : y;
 
-    tl.to(["#eyeLeft", "#pupilLeft"], {
-      scaleY: 0.08,
-      duration: 0.08,
-      ease: "power1.in",
-      svgOrigin: "194.34842 165.05255"
-    }, 0)
-    .to(["#eyeRight", "#pupilRight"], {
-      scaleY: 0.08,
-      duration: 0.08,
-      ease: "power1.in",
-      svgOrigin: "248.54116 164.38522"
-    }, 0)
-    .to(["#eyeLeft", "#pupilLeft"], {
-      scaleY: 1,
-      duration: 0.12,
-      ease: "power1.out",
-      svgOrigin: "194.34842 165.05255"
-    }, "+=0")
-    .to(["#eyeRight", "#pupilRight"], {
-      scaleY: 1,
-      duration: 0.12,
-      ease: "power1.out",
-      svgOrigin: "248.54116 164.38522"
-    }, "<");
-  }
+      // FIX 3: kill any in-progress move tween before bouncing
+      gsap.killTweensOf(character);
 
-  document.getElementById("character").addEventListener("click", blinkBoth);
-</script>
-    
-    
+      gsap.to(character, {
+        duration: bounceTime,
+        yoyo: true,
+        repeat: 1,
+        ease: "power1.out",
+        attr: { transform: `translate(${targetX},${targetY}) scale(${facing * scaleFactor},${scaleFactor})` },
+        onComplete: () => { isBouncing = false; }
+      });
+    }
+
+    window.addEventListener("keydown", (e) => {
+      // FIX 6: prevent arrow keys from scrolling the page
+      if (["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].includes(e.key)) {
+        e.preventDefault();
+      }
+
+      if (isBouncing) return; // FIX 3: ignore input mid-bounce
+
+      let moved = false;
+
+      switch (e.key) {
+        case "ArrowUp":
+          if (y - step >= 0) { y -= step; moved = true; }
+          else bounce("y", -1);
+          break;
+        case "ArrowDown":
+          if (y + step + charHeight <= viewBox.height) { y += step; moved = true; }
+          else bounce("y", 1);
+          break;
+        case "ArrowLeft":
+          if (x - step >= 0) { x -= step; facing = 1; moved = true; }
+          else bounce("x", -1);
+          break;
+        case "ArrowRight":
+          if (x + step + charWidth <= viewBox.width) { x += step; facing = -1; moved = true; }
+          else bounce("x", 1);
+          break;
+      }
+
+      if (moved) applyTransform();
+    });
+
+    // Blink animation
+    gsap.set(["#eyeLeft", "#pupilLeft", "#eyeRight", "#pupilRight"], { scaleY: 1 });
+
+    function blinkBoth() {
+      if (gsap.isTweening("#eyeLeft") || gsap.isTweening("#eyeRight")) return;
+
+      const tl = gsap.timeline();
+
+      tl.to(["#eyeLeft", "#pupilLeft"], {
+        scaleY: 0.08,
+        duration: 0.08,
+        ease: "power1.in",
+        svgOrigin: "194.34842 165.05255"
+      }, 0)
+      .to(["#eyeRight", "#pupilRight"], {
+        scaleY: 0.08,
+        duration: 0.08,
+        ease: "power1.in",
+        svgOrigin: "248.54116 164.38522"
+      }, 0)
+      .to(["#eyeLeft", "#pupilLeft"], {
+        scaleY: 1,
+        duration: 0.12,
+        ease: "power1.out",
+        svgOrigin: "194.34842 165.05255"
+      })
+      .to(["#eyeRight", "#pupilRight"], {
+        scaleY: 1,
+        duration: 0.12,
+        ease: "power1.out",
+        svgOrigin: "248.54116 164.38522"
+      }, "<");
+    }
+
+    document.getElementById("character").addEventListener("click", blinkBoth);
+  </script>
 </body>
 </html>
