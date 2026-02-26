@@ -28,6 +28,15 @@
   </style>
 </head>
 <body>
+  <script>
+    // Block arrow key scrolling immediately on page load, before any other listener
+    window.addEventListener("keydown", function(e) {
+      if (["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].includes(e.key)) {
+        e.preventDefault();
+      }
+    }, { capture: true });
+  </script>
+
   <svg
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
