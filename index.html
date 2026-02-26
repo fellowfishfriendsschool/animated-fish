@@ -310,7 +310,7 @@
           else bounce("x", -1);
           break;
         case "ArrowRight":
-          if (x + step <= viewBox.width*1.2) { x += step; facing = -1; moved = true; }
+          if (x + step <= viewBox.width*(1 + scaleFactor)) { x += step; facing = -1; moved = true; }
           else bounce("x", 1);
           break;
       }
