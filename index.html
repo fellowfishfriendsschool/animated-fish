@@ -151,6 +151,49 @@
     </g>
   </svg>
 
+  <!-- Arrow indicators -->
+  <div id="instructions">
+    <div class="arrow-up">
+      <svg id="arrow-up" viewBox="0 0 10 8" xmlns="http://www.w3.org/2000/svg"><polygon points="5,0 10,8 0,8"/></svg>
+    </div>
+    <div class="arrow-middle">
+      <svg id="arrow-left" viewBox="0 0 8 10" xmlns="http://www.w3.org/2000/svg"><polygon points="0,5 8,0 8,10"/></svg>
+      <svg id="arrow-down" viewBox="0 0 10 8" xmlns="http://www.w3.org/2000/svg"><polygon points="5,8 0,0 10,0"/></svg>
+      <svg id="arrow-right" viewBox="0 0 8 10" xmlns="http://www.w3.org/2000/svg"><polygon points="8,5 0,0 0,10"/></svg>
+    </div>
+  </div>
+
+  <style>
+    #instructions {
+      position: fixed;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      pointer-events: none;
+      user-select: none;
+    }
+    .arrow-up, .arrow-middle {
+      display: flex;
+      justify-content: center;
+      gap: 3px;
+    }
+    #instructions svg {
+      width: 16px;
+      height: 16px;
+      fill: rgba(0,0,0,0.55);
+      filter: drop-shadow(0 0 2px rgba(255,255,255,0.6));
+      transition: fill 0.1s ease, filter 0.1s ease;
+    }
+    #instructions svg.lit {
+      fill: #00cfff;
+      filter: drop-shadow(0 0 6px #00cfff);
+    }
+  </style>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script>
     const character = document.getElementById("character");
@@ -226,10 +269,18 @@
       });
     }
 
+    const arrowMap = {
+      ArrowUp: document.getElementById("arrow-up"),
+      ArrowDown: document.getElementById("arrow-down"),
+      ArrowLeft: document.getElementById("arrow-left"),
+      ArrowRight: document.getElementById("arrow-right"),
+    };
+
     window.addEventListener("keydown", (e) => {
-      // FIX 6: prevent arrow keys from scrolling the page
+      // prevent arrow keys from scrolling the page
       if (["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].includes(e.key)) {
         e.preventDefault();
+        if (arrowMap[e.key]) arrowMap[e.key].classList.add("lit");
       }
 
       if (isBouncing) return; // FIX 3: ignore input mid-bounce
@@ -256,6 +307,10 @@
       }
 
       if (moved) applyTransform();
+    });
+
+    window.addEventListener("keyup", (e) => {
+      if (arrowMap[e.key]) arrowMap[e.key].classList.remove("lit");
     });
 
     // Blink animation
